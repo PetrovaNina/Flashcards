@@ -41,6 +41,11 @@ main {
     background-color: #ffffff50;
 }
 
+.quiz-heading {
+    margin-top: 0;
+    line-height: 0.5em;
+}
+
 .quiz-area {
     width: 500px;
     height: 500px;
@@ -51,19 +56,45 @@ main {
     text-align: center;
 }
 
-.quiz-heading {
-    margin-top: 0;
-    line-height: 0.5em;
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 2s;
+    transform-style: preserve-3d;
 }
 
-.quiz-card {
+.card:hover {
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     padding: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
     border: 2px solid;
     border-radius: 0.5em;
+    overflow: hidden;
+}
+
+.front {
+    background-color: #ffffff;
+    z-index: 2;
+    backface-visibility: hidden;
+}
+
+.back {
+    color: #ffffff;
+    background-color: #215ca0;
+    z-index: 1;
+    transform: rotateY(180deg);
 }
 
 .dev-link {
